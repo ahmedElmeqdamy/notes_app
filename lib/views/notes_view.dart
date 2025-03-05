@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/note_item.dart';
-import '../widgets/text_form_field.dart';
+import '../widgets/custom_show_bottom_sheet.dart';
+
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -9,28 +9,7 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-              context: context,
-              builder: (context) {
-                return Container(
-                  color: Colors.white,
-                  child: Padding(
-                    padding:  EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        CustomTextFormField(hintText: 'title', ),
-                        CustomTextFormField(hintText: 'task',maxLine: 4,),
-                      ],
-                    ),
-                  ),
-                );
-              });
-        },
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: CustomBottomSheet(),
       appBar: AppBar(
         backgroundColor: Color(0xFF3A2E39),
         elevation: 2,
@@ -60,3 +39,5 @@ class NotesView extends StatelessWidget {
     );
   }
 }
+
+
