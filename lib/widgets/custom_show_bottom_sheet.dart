@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/custom_text_form_field.dart';
+
+import 'custom_button.dart';
 class CustomBottomSheet extends StatelessWidget {
   const CustomBottomSheet({
     super.key,
@@ -19,13 +21,15 @@ class CustomBottomSheet extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CustomTextFormField(
+                       CustomTextFormField(
                         hintText: 'title',
                       ),
                       CustomTextFormField(
                         hintText: 'task',
                         maxLine: 4,
                       ),
+                      CustomButton(text: 'add me plz', onPressed: () {  },),
+
                     ],
                   ),
                 ),
@@ -36,3 +40,4 @@ class CustomBottomSheet extends StatelessWidget {
     );
   }
 }
+
