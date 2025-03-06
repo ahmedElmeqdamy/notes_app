@@ -8,19 +8,15 @@ class CustomTextFormField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final int? maxLine;
 
-
-
-
-
-   CustomTextFormField({
-    Key? key,
+   const CustomTextFormField({
+    super.key,
     required this.hintText,
     this.suffixIcon,
     this.obscureText = false,
     this.controller,
     this.validator,
     this.onChanged,  this.maxLine,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
