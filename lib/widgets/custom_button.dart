@@ -5,23 +5,23 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const CustomButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xFF1F4D54), // الأزرق الغامق
-        foregroundColor: Colors.white, // لون النص
+        backgroundColor: Color(0xFF1F4D54),
+        foregroundColor: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        shadowColor: Color(0xFFE6A578), // برتقالي دافئ للظل
+        shadowColor: Color(0xFFE6A578),
         elevation: 5,
       ),
       child: Text(

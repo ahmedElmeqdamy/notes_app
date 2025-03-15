@@ -5,15 +5,12 @@ import 'notes_state.dart';
 
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
+  List<NoteModel>? notes;
 
-  Future<void> fetchNotes() async {
-    emit(NotesLoading());
-    try {
-      await Future.delayed(Duration(seconds: 5));
-      var notesBox = Hive.box<NoteModel>('notes_box');
-      emit(NotesSuccess(notes: notesBox.values.toList()));
-    } catch (e) {
-      emit(NotesFailure(errorMessage: 'Error is $e'));
-    }
+  fetchNotes() {
+    // emit(NotesLoading());
+    var notesBox = Hive.box<NoteModel>('notes_box');
+    notes = notesBox.values.toList();
+    emit(NotesSuccess());
   }
 }

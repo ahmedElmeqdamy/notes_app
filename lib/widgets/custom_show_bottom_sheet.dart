@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_text_form_field.dart';
 
-import 'custom_button.dart';
+
+import 'add_note_bottom_sheet.dart';
+
 class CustomBottomSheet extends StatelessWidget {
   const CustomBottomSheet({
     super.key,
@@ -12,32 +13,16 @@ class CustomBottomSheet extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () {
         showModalBottomSheet(
+          isScrollControlled: true,
             context: context,
             builder: (context) {
-              return Container(
-                color: Colors.white,
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                       CustomTextFormField(
-                        hintText: 'title',
-                      ),
-                      CustomTextFormField(
-                        hintText: 'task',
-                        maxLine: 4,
-                      ),
-                      CustomButton(text: 'add me plz', onPressed: () {  },),
-
-                    ],
-                  ),
-                ),
-              );
+              return AddNoteBottomSheet();
             });
       },
       child: Icon(Icons.add),
     );
   }
 }
+
+
 
